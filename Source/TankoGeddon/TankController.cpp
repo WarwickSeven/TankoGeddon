@@ -6,6 +6,7 @@
 
 ATankController::ATankController()
 {
+	PrimaryActorTick.bCanEverTick = true;
 	bShowMouseCursor = true;	
 }
 
@@ -22,6 +23,7 @@ void ATankController::SetupInputComponent()
 		//InputComponent->BindAction("BallisticAiming", EInputEvent::IE_Pressed, this, &ATankController::BallisticAiming);
 		InputComponent->BindAxis("RotateTurretRight", this, &ATankController::RotateTurretRight);
 		// InputComponent->BindKey(EKeys::LeftMouseButton, IE_Released, this, &ThisClass::OnLeftMouseButtonUp);
+		InputComponent->BindAction("OnLeftMouseButtonUp", EInputEvent::IE_Released, this, &ATankController::OnLeftMouseButtonUp);
 	}
 }
 
@@ -90,10 +92,10 @@ void ATankController::AlternateFire()
 		TankPawn->AlternateFire();
 }
 
-// void ATankController::OnLeftMouseButtonUp()
-// {
-// 	OnMouseButtonUp.Broadcast();
-// }
+void ATankController::OnLeftMouseButtonUp()
+{
+	OnMouseButtonUp.Broadcast();
+}
 
 // void ATankController::BallisticAiming()
 // {

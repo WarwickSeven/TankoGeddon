@@ -29,7 +29,7 @@ public:
 	
 	virtual void SetPawn(APawn* InPawn) override;
 
-	//FSimpleMulticastDelegate OnMouseButtonUp;
+	FSimpleMulticastDelegate OnMouseButtonUp;
 	
 protected:
 	UFUNCTION()
@@ -50,7 +50,7 @@ protected:
 	UFUNCTION()
 	void AlternateFire();
 
-	// void OnLeftMouseButtonUp();
+	void OnLeftMouseButtonUp();
 	
 	// UFUNCTION()
 	// void BallisticAiming();
